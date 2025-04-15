@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2048" height="1024" viewBox="0 0 2048 1024">
+  <defs>
+    <filter id="displacementMap">
+      <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="5" result="noise" />
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayscaleNoise" />
+      <feGaussianBlur stdDeviation="1.5" in="grayscaleNoise" result="blurredNoise" />
+    </filter>
+  </defs>
+  
+  <!-- 基础位移颜色 -->
+  <rect width="100%" height="100%" fill="#808080" />
+  
+  <!-- 位移贴图纹理 -->
+  <rect width="100%" height="100%" fill="#808080" filter="url(#displacementMap)" opacity="0.95" />
+  
+  <!-- 主要高度变化 -->
+  <g transform="translate(1024, 512)">
+    <!-- 大型高度变化 -->
+    <circle cx="-200" cy="-100" r="150" fill="#ffffff" opacity="0.9" />
+    <circle cx="300" cy="50" r="120" fill="#ffffff" opacity="0.85" />
+    <circle cx="-400" cy="200" r="100" fill="#ffffff" opacity="0.8" />
+    
+    <!-- 中型高度变化 -->
+    <circle cx="100" cy="-200" r="80" fill="#e0e0e0" opacity="0.75" />
+    <circle cx="-150" cy="150" r="60" fill="#e0e0e0" opacity="0.7" />
+    
+    <!-- 小型高度变化 -->
+    <circle cx="250" cy="-150" r="40" fill="#c0c0c0" opacity="0.65" />
+    <circle cx="-300" cy="-50" r="30" fill="#c0c0c0" opacity="0.6" />
+    <circle cx="150" cy="200" r="25" fill="#c0c0c0" opacity="0.55" />
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2048" height="1024" viewBox="0 0 2048 1024">
+  <defs>
+    <filter id="normalMap">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="6" result="noise" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0
+                                           0 1 0 0 0
+                                           0 0 1 0 0
+                                           0 0 0 1 0" in="noise" result="coloredNoise" />
+      <feGaussianBlur stdDeviation="2" in="coloredNoise" result="blurredNoise" />
+    </filter>
+  </defs>
+  
+  <!-- 基础法线颜色 -->
+  <rect width="100%" height="100%" fill="#8080ff" />
+  
+  <!-- 法线贴图纹理 -->
+  <rect width="100%" height="100%" fill="#8080ff" filter="url(#normalMap)" opacity="0.9" />
+  
+  <!-- 主要表面细节 -->
+  <g transform="translate(1024, 512)">
+    <!-- 大型凹凸 -->
+    <ellipse cx="-250" cy="-150" rx="180" ry="160" fill="#6060ff" opacity="0.85" />
+    <ellipse cx="350" cy="100" rx="150" ry="130" fill="#6060ff" opacity="0.8" />
+    <ellipse cx="-450" cy="250" rx="120" ry="110" fill="#6060ff" opacity="0.75" />
+    
+    <!-- 中型凹凸 -->
+    <ellipse cx="150" cy="-250" rx="90" ry="85" fill="#9090ff" opacity="0.7" />
+    <ellipse cx="-200" cy="200" rx="70" ry="65" fill="#9090ff" opacity="0.65" />
+    
+    <!-- 小型凹凸 -->
+    <circle cx="300" cy="-200" r="45" fill="#a0a0ff" opacity="0.6" />
+    <circle cx="-350" cy="-100" r="35" fill="#a0a0ff" opacity="0.55" />
+    <circle cx="200" cy="250" r="30" fill="#a0a0ff" opacity="0.5" />
+  </g>
+</svg>
